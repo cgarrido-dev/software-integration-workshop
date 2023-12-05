@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Santiago Seguros - Contacto</title>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+
+    <div class="container header">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-6 md-padding"><a href="index.html"><img src="assets/img/logo.png" alt="Santiago Seguros" title="Santiago Seguros" width="150" height="40" class="logo"/></a></div>
+                <div class="col-xl-6 md-padding"><p class="text-right llamanos">Llámanos: +569 000 000 00</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container nav">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="menu-icon"><img src="assets/img/menu-responsive.png" width="24" height="24"/></div>
+                    <ul class="menu">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="contact.html">Formulario de Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container top-section">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-12 md-padding">
+                    <h1>Formulario de Contacto</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit inte lacinia malesuada justo sit amet vestibulum orci tristiquen nunc nonec ultricies enimullam lorem est.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container content-section">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-6 col-l-12 md-padding">
+                    <p class="mb-30">¡Gracias por tu interés en Santiago Seguros! Completa el formulario para que nuestro equipo comercial te contacte.<br><br>
+                        Los campos marcados con <span class="required">*</span> son obligatorios</p>
+                    <div class="info-alert mb-20 hide" id="infoAlert"></div>
+                    <div class="warning mb-20 hide" id="warning"></div>
+                    <form id="customerRegistration" action="procesar-formulario.php" method="post">
+                        <label for="name">Nombre: <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                
+                        <label for="lastName">Apellido:  <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                
+                        <label for="phone">Teléfono:  <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                
+                        <label for="email">Correo Electrónico:  <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                
+                        <label for="typeInsurance">Tipo de Seguro:  <span class="required">*</span></label>
+                        <select id="typeInsurance" name="typeInsurance" required>
+                            <option value="" selected disabled>Seleccione</option>
+                        </select>
+                
+                        <input type="submit" value="Enviar" id="sendFormInsurance" class="button-send-form"/>
+                    </form>
+                </div>
+                <div class="col-xl-6 col-l-12 md-padding xl-padding">
+                    <div class="mb-40 md-top">
+                        <h3 class="mb-20">Informacion de Contacto</h3>
+                        <p>Calle Falsa #123, Temuco, Región de la Araucanía, Chile.</p>
+                        <p>+569 000 000 00</p>
+                        <p>info@santiagoseguros.com</p>
+                    </div>
+
+                    <div>
+                        <h3 class="mb-20">¿Cómo te podemos ayudar?</h3>
+                        <h4>Pregunta</h4>
+                        <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis turpis vitae neque placerat, ut gravida purus viverra.</p>
+                        <div class="divider mb-20"></div>
+                        <h4>Pregunta</h4>
+                        <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis turpis vitae neque placerat, ut gravida purus viverra.</p>
+                        <div class="divider mb-20"></div>
+                        <h4>Pregunta</h4>
+                        <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis turpis vitae neque placerat, ut gravida purus viverra.</p>
+                        <div class="divider mb-20"></div>
+                        <h4>Pregunta</h4>
+                        <p class="mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis turpis vitae neque placerat, ut gravida purus viverra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container bottom-section">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-4 col-l-6 col-m-12 md-padding">
+                    <p class="text-bottom-section">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mollis turpis vitae neque placerat, ut gravida purus viverra.<br><br>Llámanos: +569 000 000 00</p>
+                    <button class="button-informacion">solicitar Información</button>
+                </div>
+                <div class="col-xl-4 col-l-6 col-m-12"><!-- EMPTY --></div>
+                <div class="col-xl-4 col-l-6 col-m-12"><!-- EMPTY --></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container footer">
+        <div class="wrap">
+            <div class="row">
+                <div class="col-xl-12 md-padding">
+                    <p class="copyright">Copyright 2023. Santiago Seguros. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/webControls.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Acceso Plataforma Asistencia</title>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-2 sidebar pt-20 pl-20 pr-20 pb-20">
+
+                <div class="row">
+                    <div class="col-xl-6 text-left">
+                        <img src="assets/img/logo_home.png" alt="Registro Asistencia" title="Registro Asistencia" width="24" height="24"/>
+                    </div>
+                    <div class="col-xl-6 text-right">
+                        <img src="assets/img/user_icon.png" alt="Perfil" title="Perfil" width="20" height="20" class="user-icon"/>
+                        <img src="assets/img/cerrar_sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión" width="18" height="18" class="signout-icon" onclick="signOut()"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 pt-40 pl-40 pr-40 pb-40 text-center">
+                        <img src="assets/img/profile_image.png" alt="Usuario" title="Usuario" width="96" height="96" class="profile-image mb-20"/>
+                        <p class="mb-5 user-name">Cosme Fulanito</p>
+                        <p>usuario@registrodocente.com</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 mb-20">
+                        <span class="title-section">MANTENEDORES</span>
+                        <span class="description-section">Lorem ipsum dolor sit amet</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12">
+                        <ul class="sidebar-menu">
+                            <li class="pointer-menu"><a href="home.html">Home</a></li>
+                            <li class="pointer-menu"><a href="teachers.html">Profesores</a></li>
+                            <li class="pointer-menu"><a href="courses.html">Cursos</a></li>
+                            <li class="pointer-menu"><a href="assistance.html">Asistencia</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xl-10">
+
+                <div class="row">
+                    <div class="col-xl-12 top-menu pt-10 pl-10 pr-10 pb-10">
+                        <img src="assets/img/menu.png" alt="Menu" title="Menu" width="18" height="18" class="icon-content-menu"/>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-12 pt-30 pl-30 pr-30 pb-30">
+                      
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <h1>Profesores</h1>
+                            </div>
+                            <div class="col-xl-6 text-right">
+                                <button class="btn-fl-action" id="addTeacher">Agregar Profesor</button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="warning-table-teacher mb-20 mt-20 hide" id="warning-table-teacher"></div>
+                                <table class="styled-table" id="tblTeachers">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="no-record-teachers" class="hide"><td colspan="4">No existen registros</td></tr>
+                                        <!-- El contenido se obtiene dinamicamente desde la base de datos -->
+                                    </tbody>
+                                </table>
+                                <div id="total-records"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="header-modal">
+                <h1>Agregar Profesor</h1>
+                <span class="close" onclick="closeModal(this)" data-id="addModal">&times;</span>                
+            </div>
+            <div class="content-modal">
+                <div class="warning-teacher mb-20 hide" id="warning-teacher"></div>
+                <form method="POST" id="addTeacherForm">
+                    <label for="nombre">Nombre del Profesor:</label>
+                    <input type="text" id="nombre" name="nombre" data-id="nombre" required oninput="validationOnlyLetters(this)"><br><br>
+            
+                    <label for="apellido">Apellido del Profesor:</label>
+                    <input type="text" id="apellido" name="apellido" data-id="apellido" required oninput="validationOnlyLetters(this)"><br><br>
+                </form>
+
+            </div>
+            <div class="footer-modal text-right">
+                <button class="btn-fl-neutral mr-10" onclick="closeModal(this)" data-id="addModal">Cancelar</button>
+                <button class="btn-fl-action" onclick="insertTeacher()" id="insert-button-modal">Insertar</button>
+            </div>
+ 
+        </div>
+    </div>
+
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <div class="header-modal">
+                <h1>Actualizar Profesor</h1>
+                <span class="close" onclick="closeModal(this)" data-id="updateModal">&times;</span>                
+            </div>
+            <div class="content-modal">
+                <div class="warning-update-teacher mb-20 hide" id="warning-update-teacher"></div>
+                <form method="POST" id="addTeacherForm">
+                    <label for="update_nombre">Nombre del Profesor:</label>
+                    <input type="text" id="update_nombre" name="update_nombre" data-id="update_nombre" required oninput="validationOnlyLetters(this)"><br><br>
+            
+                    <label for="update_apellido">Apellido del Profesor:</label>
+                    <input type="text" id="update_apellido" name="update_apellido" data-id="update_apellido" required oninput="validationOnlyLetters(this)"><br><br>
+                    
+                    <input type="text" id="profesorId" name="profesorId" data-id="profesorId" class="hide"/>
+                </form>
+
+            </div>
+            <div class="footer-modal text-right">
+                <button class="btn-fl-neutral mr-10" onclick="closeModal(this)" data-id="updateModal">Cancelar</button>
+                <button class="btn-fl-action" onclick="saveUpdateTeacher()" id="update-button-modal">Actualizar</button>
+            </div>
+ 
+        </div>
+    </div>
+
+    <script src="assets/js/web_controls_teachers.js"></script>
+</body>
+</html>
