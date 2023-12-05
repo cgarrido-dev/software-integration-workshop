@@ -1,1 +1,1 @@
-# Taller de Integración de Software
+# Software Integration Workshop
